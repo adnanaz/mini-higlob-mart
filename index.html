@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Menu Kantin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 40px;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+        .menu-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .menu-section {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .menu-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .menu-section h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .menu-list {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(118, 75, 162, 0.1);
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .menu-list li:hover {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding-left: 10px;
+            border-radius: 10px;
+        }
+        .menu-list li:last-child {
+            border-bottom: none;
+        }
+        .item-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .item-price {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        .item-price:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 1024px) {
+            .menu-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            h1 {
+                font-size: 2.8em;
+            }
+        }
+        @media (max-width: 768px) {
+            .menu-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 500px;
+            }
+            .container {
+                padding: 20px 15px;
+                justify-content: flex-start;
+                padding-top: 30px;
+            }
+            h1 {
+                font-size: 2.2em;
+                margin-bottom: 30px;
+                line-height: 1.2;
+            }
+            .menu-section {
+                padding: 25px 20px;
+                margin-bottom: 0;
+            }
+            .menu-section h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+                color: #667eea;
+            }
+            .menu-list li {
+                padding: 15px 0;
+                font-size: 1.1em;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .item-name {
+                font-size: 1.05em;
+                line-height: 1.4;
+                flex: 1;
+                min-width: 0;
+                word-wrap: break-word;
+            }
+            .item-price {
+                padding: 8px 16px;
+                font-size: 1em;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 10px;
+                padding-top: 20px;
+            }
+            h1 {
+                font-size: 1.9em;
+                margin-bottom: 25px;
+            }
+            .menu-wrapper {
+                max-width: 100%;
+                gap: 15px;
+            }
+            .menu-section {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+            .menu-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            .menu-list li {
+                padding: 12px 0;
+                font-size: 1em;
+                border-bottom: 1px solid rgba(118, 75, 162, 0.15);
+            }
+            .item-name {
+                font-size: 0.95em;
+                line-height: 1.3;
+                padding-right: 10px;
+            }
+            .item-price {
+                font-size: 0.9em;
+                padding: 6px 14px;
+                border-radius: 20px;
+            }
+        }
+        @media (max-width: 360px) {
+            .container {
+                padding: 10px 8px;
+                padding-top: 15px;
+            }
+            h1 {
+                font-size: 1.6em;
+                margin-bottom: 20px;
+            }
+            .menu-section {
+                padding: 15px 12px;
+            }
+            .menu-section h2 {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+            .menu-list li {
+                padding: 10px 0;
+                font-size: 0.9em;
+            }
+            .item-name {
+                font-size: 0.85em;
+                line-height: 1.2;
+            }
+            .item-price {
+                font-size: 0.8em;
+                padding: 5px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Katalog Menu Kantin</h1>
+        <div class="menu-wrapper">
+            <div class="menu-section">
+                <h2>Jajanan</h2>
+                <ul class="menu-list">
+                    <li><span class="item-name">SARI GANDUM</span><span class="item-price">Rp3.000</span></li>
+                    <li><span class="item-name">MACARONI</span><span class="item-price">Rp2.000 dapat 3</span></li>
+                    <li><span class="item-name">MALKIST</span><span class="item-price">Rp2.000</span></li>
+                    <li><span class="item-name">KHONG GUAN</span><span class="item-price">Rp2.000</span></li>
+                    <li><span class="item-name">APETITO</span><span class="item-price">Rp3.000</span></li>
+                    <li><span class="item-name">CHOCOLATOS CERUTU</span><span class="item-price">Rp5.000</span></li>
+                    <li><span class="item-name">TOP</span><span class="item-price">Rp1.000</span></li>
+                    <li><span class="item-name">BETTER</span><span class="item-price">Rp2.000</span></li>
+                    <li><span class="item-name">CHOCO PIE</span><span class="item-price">Rp3.000</span></li>
+                    <li><span class="item-name">MIE KREMEZ</span><span class="item-price">Rp5.000</span></li>
+                    <li><span class="item-name">ROTI SEMIR</span><span class="item-price">Rp2.000</span></li>
+                    <li><span class="item-name">ROTI JORDAN</span><span class="item-price">Rp1.000</span></li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h2>Minuman</h2>
+                <ul class="menu-list">
+                    <li><span class="item-name">FRESTEA</span><span class="item-price">Rp6.000</span></li>
+                    <li><span class="item-name">FLORIDINA</span><span class="item-price">Rp5.000</span></li>
+                    <li><span class="item-name">GOLDA</span><span class="item-price">Rp3.500</span></li>
+                    <li><span class="item-name">ENERGEN</span><span class="item-price">Rp2.500</span></li>
+                    <li><span class="item-name">WHITE COFFEE</span><span class="item-price">Rp2.500</span></li>
+                    <li><span class="item-name">TORABIKA CAPPUCINO</span><span class="item-price">Rp2.500</span></li>
+                    <li><span class="item-name">NUTRISARI</span><span class="item-price">Rp2.000</span></li>
+                </ul>
+            </div>
+
+             <div class="menu-section">
+                <h2>Makanan</h2>
+                <ul class="menu-list">
+                    <li><span class="item-name">INDOMIE REBUS, GORENG, KARI</span><span class="item-price">Rp3.500</span></li> 
+                    <li><span class="item-name">INDOMIE + DIMASAKIN</span><span class="item-price">Rp6.000</span></li> 
+                    <li><span class="item-name">SEMUA VARIAN POP MIE</span><span class="item-price">Rp6.000</span></li> 
+                    <li><span class="item-name">KOREAN SPICY</span><span class="item-price">Rp6.000</span></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
